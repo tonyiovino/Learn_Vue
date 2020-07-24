@@ -1,0 +1,38 @@
+<!doctype html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="style.css">
+
+    <title>The Randomizer</title>
+  </head>
+  <body>
+      <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+      <h1>The Randomizer</h1>
+
+      <div id="app-2" class="container">
+        <h2>{{ numero }}</h2>
+
+        <button v-on:click="randomnum">Numero Casuale</button>
+      </div>
+
+      <script>
+        var app_2 = new Vue({
+          el: '#app-2',
+          data: {
+            numero: 0
+          },
+
+          methods:{
+            randomnum: function () {		
+                this.numero = Math.random()*1000000 ^ 0;
+            }
+          },
+        })
+      </script>
+  </body>
+</html>
