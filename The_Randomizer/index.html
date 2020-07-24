@@ -18,18 +18,19 @@
         <h2>{{ numero }}</h2>
 
         <button v-on:click="randomnum">Numero Casuale</button>
+        <p>(Un intero a caso da 1 a 1000)</p>
       </div>
 
       <script>
         var app_2 = new Vue({
           el: '#app-2',
           data: {
-            numero: 0
+            numero: 0,
           },
 
           methods:{
             randomnum: function () {		
-                this.numero = Math.random()*1000000 ^ 0;
+                this.numero = Math.random()*1000 ^ 0;
             }
           },
         })

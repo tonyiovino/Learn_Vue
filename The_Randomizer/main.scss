@@ -40,6 +40,13 @@ h2 {
     color: $color-secondary;
 }
 
+p {
+	margin-top: 3rem;
+	font-size: 1.5rem;
+	font-weight: 800;
+	color: $color-secondary;
+}
+
 button {
 	background-color: $color-secondary;
 	color: $color-primary;
@@ -58,10 +65,6 @@ button:hover {
 	background-color: $color-primary;
 	color: $color-secondary;
 	box-shadow: 0 0.75rem 1rem 0 rgba(0,0,0,0.24), 0 1.0625rem 3.125rem 0 rgba(0,0,0,0.19);
-}
-
-.btnright {
-	margin-left: 3rem;
 }
 
 .container {
