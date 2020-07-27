@@ -1,0 +1,131 @@
+<!doctype html>
+
+<!-- live-server -->
+
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="style.css">
+
+    <title>The Counter</title>
+  </head>
+  <body>
+      <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+      <h1>The Counter</h1>
+
+      <div id="app-1" class="container">
+        <h2>Soldi: {{ soldi }}</h2>
+        <h2>Negozio: {{ negozio }}</h2>
+        <h2>Dipendenti: {{ dipendenti }}</h2>
+        <h2>Cibo: {{ cibo }}</h2>
+
+        <button v-on:click="soldiClick">Money: {{ click }}</button>
+
+        <p>Compra Cibo:
+        <button v-on:click="buyCibo">Prezzo: {{ costoCibo }}</button></p>
+
+        <p>Compra Dipendenti:
+        <button v-on:click="buyDipendenti">Prezzo: {{ costoDipendenti }}</button></p>
+
+        <p>Compra Negozio:
+        <button v-on:click="buyNegozio">Prezzo: {{ costoNegozio }}</button></p>
+
+        <p>Compra Bost Click:
+        <button v-on:click="buyBost">Prezzo: {{ costoBost }}</button></p>
+      </div>
+
+      <script>
+        var app = new Vue({
+          el: '#app-1',
+          data: {
+            soldi: 0,
+            click: 1,
+
+            cibo: 1800,
+            dipendenti: 1,
+            negozio: 0,
+
+            costoCibo: 10,
+            costoDipendenti: 100,
+            costoNegozio: 1000,
+
+            dipendentiValue: 10,
+            negozioValue: 100,
+
+            dipendentiEntrate: 0,
+            negozioEntrate: 0,
+
+            costoBost: 500,
+          },
+
+          methods: {
+            soldiClick: function(){
+              this.soldi += this.click;
+            }, 
+
+            addSoldi: function() {
+              this.soldi +=
+              (this.dipendentiEntrate = this.dipendenti * this.dipendentiValue) +
+              (this.negozioEntrate = this.negozio * this.negozioValue);
+            },
+            ripetizione: function() {
+              if (this.cibo >= this.dipendentiValue && this.dipendenti > 0){
+                this.addSoldi();
+                this.cibo -= (this.dipendentiEntrate = this.dipendenti * this.dipendentiValue);
+              }
+            },
+
+            buyCibo: function() {
+              if (this.soldi >= this.costoCibo){
+                this.soldi -= this.costoCibo;
+                this.cibo += 100;
+              }
+              else {
+                alert("Non hai abbastanza soldi!")
+              }
+            },
+
+            buyDipendenti: function() {
+              if (this.soldi >= this.costoDipendenti){
+                this.soldi -= this.costoDipendenti;
+                this.dipendenti += 1;
+              }
+              else {
+                alert("Non hai abbastanza soldi!")
+              }
+            },
+
+            buyNegozio: function() {
+              if (this.soldi >= this.costoNegozio){
+                this.soldi -= this.costoNegozio;
+                this.negozio += 1;
+              }
+              else {
+                alert("Non hai abbastanza soldi!")
+              }
+            },
+
+            buyBost: function() {
+              if (this.soldi >= this.costoBost){
+                this.soldi -= this.costoBost;
+                this.click *= 5;
+                this.costoBost *= 2;
+              }
+              else {
+                alert("Non hai abbastanza soldi!")
+              }
+            },
+          },
+
+          mounted: function() {
+            setInterval(this.ripetizione, 1000);
+          },
+
+        })
+      </script>
+  </body>
+</html>
