@@ -16,18 +16,22 @@
       <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 
       <div id="app-1" class="container">
-        <header>
+        <header class="header">
           <h1>The Company</h1>
-          <button v-on:click="buyCiboPlus">Cibo x1000</button>
         </header>
-        <h2>Soldi: {{ soldi }} <button class="buttonPrimary" v-on:click="soldiClick">Money: {{ click }}</button></h2>
-        <h3>Entrate dipendenti: {{ dipendentiEntrate }}</h3>
-        <h3>Entrate negozio: {{ negozioEntrate }}</h3>
-
+        
+        <h2>Soldi: {{ soldi }}$
+          <button class="buttonPrimary" v-on:click="soldiClick">Money: {{ click }}$</button>
+        </h2>
         <p>
-          Cibo: {{ cibo }}
+          <h3>Entrate dipendenti: {{ dipendentiEntrate }}$/{{ tempo/1000 }}s</h3>
+          <h3>Entrate negozio: {{ negozioEntrate }}$/{{ tempo/1000 }}s</h3>
+        </p>
+        <p>
+          Cibo: {{ cibo }} unità -{{dipendenti * 10}}/{{ tempo/1000 }}s
           <p>Compra il cibo: {{ amountCibo }}</p>
           <button v-on:click="buyCibo">Prezzo: {{ costoCibo }}</button>
+          <button v-on:click="buyCiboPlus">Cibo x10</button>
         </p>
         <p>
           Dipendenti: {{ dipendenti }}
@@ -44,12 +48,16 @@
           <button v-on:click="buyBost">Prezzo: {{ costoBost }}</button>
         </p>
         <p>
-          <p>Compra upgrade dipendenti:</p>
+          <p>Compra upgrade dipendenti: {{ dipendentiValue }} ==> {{ dipendentiValue * 2 }}</p>
           <button v-on:click="buyUpgradeDipendenti">Prezzo: {{ costoUpgradeDipendenti }}</button>
         </p>
         <p>
-          <p>Compra upgrade negozio:</p>
+          <p>Compra upgrade negozio: {{ negozioValue }} ==> {{ negozioValue * 2 }}</p>
           <button v-on:click="buyUpgradeNegozio">Prezzo: {{ costoUpgradeNegozio }}</button>
+        </p>
+        <p>
+          <p>Compra upgrade tempo: {{ tempo/1000 }} ==> {{ (tempo/1000) - (50/1000) }}</p>
+          <button v-on:click="buyUpgradeTempo">Prezzo: {{ costoUpgradeTempo }}</button>
         </p>
       </div>
 
@@ -63,6 +71,7 @@
             cibo: 1000,
             dipendenti: 1,
             negozio: 0,
+            tempo: 1000,
 
             costoCibo: 50,
             costoDipendenti: 100,
@@ -76,6 +85,7 @@
             costoBost: 500,
             costoUpgradeDipendenti: 1500,
             costoUpgradeNegozio: 5000,
+            costoUpgradeTempo: 1,
           },
 
           methods: {
@@ -155,6 +165,25 @@
               }
             },
 
+            buyUpgradeTempo: function() {
+              if (this.soldi >= this.costoUpgradeTempo) {
+
+                if (this.tempo <= 50) {
+                  alert("Hai raggiunto la velocità massima!");
+                }
+                
+                else {
+                  this.soldi -= this.costoUpgradeTempo;
+                  this.tempo -= 50;
+                  this.costoUpgradeTempo *= 0;
+                }
+              }
+
+              else {
+                alert("Non hai abbastanza soldi!");
+              }
+            },
+
             buyCiboPlus: function() {
               if (this.dipendentiEntrate + this.negozioEntrate > this.costoCibo * 10) {
                 this.costoCibo *= 10;
@@ -168,7 +197,7 @@
           },
 
           mounted: function() {
-            setInterval(this.ripetizione, 1000);
+            setInterval(this.ripetizione, this.tempo);
           },
 
           computed: {
