@@ -5,7 +5,7 @@
 
 html {
   font-size: 62.5%;
-  height: 100%; }
+  height: 150%; }
 
 body {
   box-sizing: border-box;
@@ -26,32 +26,38 @@ h1 {
 h2 {
   font-size: 3rem;
   padding-bottom: 4rem;
+  color: #e1e6ec;
+  text-align: center; }
+
+p {
+  font-size: 2rem;
+  padding-bottom: 0.2rem;
   color: #e1e6ec; }
 
 button {
   background-color: #e1e6ec;
   color: #2966eb;
   font-size: 1.8rem;
-  font-weight: 800;
+  font-weight: 700;
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
   padding-left: 5rem;
   padding-right: 5rem;
   border-radius: 2rem;
   border-color: transparent;
-  transition-duration: 0.4s; }
+  transition-duration: 0.4s;
+  text-align: center; }
 
 button:hover {
   background-color: #2966eb;
   color: #e1e6ec;
   box-shadow: 0 0.75rem 1rem 0 rgba(0, 0, 0, 0.24), 0 1.0625rem 3.125rem 0 rgba(0, 0, 0, 0.19); }
 
-.btnright {
-  margin-left: 3rem; }
+.buttonPrimary {
+  text-align: center; }
 
 .container {
-  text-align: left;
   width: 30rem;
   height: 15rem;
-  margin: auto;
-  margin-top: 8rem; }
+  margin-top: 8rem;
+  margin: auto; }

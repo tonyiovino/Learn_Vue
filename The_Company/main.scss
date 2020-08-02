@@ -38,7 +38,15 @@ h1 {
 h2 {
     font-size: 3rem;
 	padding-bottom: 4rem;
-    color: $color-secondary;
+	color: $color-secondary;
+	text-align: center;
+}
+
+p {
+    font-size: 2rem;
+	padding-bottom: 0.2rem;
+	color: $color-secondary;
+
 }
 
 button {
@@ -53,6 +61,7 @@ button {
 	border-radius: 2rem;
 	border-color: transparent;
 	transition-duration: 0.4s;
+	text-align: center;
 }
 
 button:hover {
@@ -61,14 +70,13 @@ button:hover {
 	box-shadow: 0 0.75rem 1rem 0 rgba(0,0,0,0.24), 0 1.0625rem 3.125rem 0 rgba(0,0,0,0.19);
 }
 
-.btnright {
-	margin-left: 3rem;
+.buttonPrimary {
+	text-align: center;
 }
 
 .container {
-	text-align: left;
 	width: 30rem;
 	height: 15rem;
-	margin: auto;
 	margin-top: 8rem;
+	margin: auto;
 }

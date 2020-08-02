@@ -15,27 +15,42 @@
   <body>
       <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 
-      <h1>The Company</h1>
-
       <div id="app-1" class="container">
-        <h2>Soldi: {{ soldi }}</h2>
-        <h2>Cibo: {{ cibo }}</h2>
-        <h2>Dipendenti: {{ dipendenti }}</h2>
-        <h2>Negozio: {{ negozio }}</h2>
+        <header>
+          <h1>The Company</h1>
+          <button v-on:click="buyCiboPlus">Cibo x1000</button>
+        </header>
+        <h2>Soldi: {{ soldi }} <button class="buttonPrimary" v-on:click="soldiClick">Money: {{ click }}</button></h2>
+        <h3>Entrate dipendenti: {{ dipendentiEntrate }}</h3>
+        <h3>Entrate negozio: {{ negozioEntrate }}</h3>
 
-        <button v-on:click="soldiClick">Money: {{ click }}</button>
-
-        <p>Compra Cibo:
-        <button v-on:click="buyCibo">Prezzo: {{ costoCibo }}</button></p>
-
-        <p>Compra Dipendenti:
-        <button v-on:click="buyDipendenti">Prezzo: {{ costoDipendenti }}</button></p>
-
-        <p>Compra Negozio:
-        <button v-on:click="buyNegozio">Prezzo: {{ costoNegozio }}</button></p>
-
-        <p>Compra Bost Click:
-        <button v-on:click="buyBost">Prezzo: {{ costoBost }}</button></p>
+        <p>
+          Cibo: {{ cibo }}
+          <p>Compra il cibo: {{ amountCibo }}</p>
+          <button v-on:click="buyCibo">Prezzo: {{ costoCibo }}</button>
+        </p>
+        <p>
+          Dipendenti: {{ dipendenti }}
+          <p>Compra i dipendenti:</p>
+          <button v-on:click="buyDipendenti">Prezzo: {{ costoDipendenti }}</button>
+        </p>
+        <p>
+          Negozio: {{ negozio }}
+          <p>Compra i negozi:</p>
+          <button v-on:click="buyNegozio">Prezzo: {{ costoNegozio }}</button>
+        </p>
+        <p>
+          <p>Compra il bost click:</p>
+          <button v-on:click="buyBost">Prezzo: {{ costoBost }}</button>
+        </p>
+        <p>
+          <p>Compra upgrade dipendenti:</p>
+          <button v-on:click="buyUpgradeDipendenti">Prezzo: {{ costoUpgradeDipendenti }}</button>
+        </p>
+        <p>
+          <p>Compra upgrade negozio:</p>
+          <button v-on:click="buyUpgradeNegozio">Prezzo: {{ costoUpgradeNegozio }}</button>
+        </p>
       </div>
 
       <script>
@@ -45,21 +60,22 @@
             soldi: 0,
             click: 1,
 
-            cibo: 1800,
+            cibo: 1000,
             dipendenti: 1,
             negozio: 0,
 
-            costoCibo: 10,
+            costoCibo: 50,
             costoDipendenti: 100,
             costoNegozio: 1000,
+
+            amountCibo: 100,
 
             dipendentiValue: 10,
             negozioValue: 100,
 
-            dipendentiEntrate: 0,
-            negozioEntrate: 0,
-
             costoBost: 500,
+            costoUpgradeDipendenti: 1500,
+            costoUpgradeNegozio: 5000,
           },
 
           methods: {
@@ -68,62 +84,107 @@
             }, 
 
             addSoldi: function() {
-              this.soldi +=
-              (this.dipendentiEntrate = this.dipendenti * this.dipendentiValue) +
-              (this.negozioEntrate = this.negozio * this.negozioValue);
+              this.soldi += this.dipendentiEntrate + this.negozioEntrate;
             },
             ripetizione: function() {
-              if (this.cibo >= this.dipendentiValue && this.dipendenti > 0){
+              if (this.cibo >= this.dipendentiEntrate && this.dipendenti > 0){
                 this.addSoldi();
-                this.cibo -= (this.dipendentiEntrate = this.dipendenti * this.dipendentiValue);
+                this.cibo -= this.dipendenti * 10;
               }
             },
 
             buyCibo: function() {
               if (this.soldi >= this.costoCibo){
                 this.soldi -= this.costoCibo;
-                this.cibo += 100;
+                this.cibo += this.amountCibo;
               }
               else {
                 alert("Non hai abbastanza soldi!")
               }
             },
-
             buyDipendenti: function() {
               if (this.soldi >= this.costoDipendenti){
                 this.soldi -= this.costoDipendenti;
                 this.dipendenti += 1;
+                this.costoDipendenti *= 2;
               }
               else {
                 alert("Non hai abbastanza soldi!")
               }
             },
-
             buyNegozio: function() {
               if (this.soldi >= this.costoNegozio){
                 this.soldi -= this.costoNegozio;
                 this.negozio += 1;
+                this.costoNegozio *= 2;
               }
               else {
                 alert("Non hai abbastanza soldi!")
               }
             },
-
             buyBost: function() {
               if (this.soldi >= this.costoBost){
                 this.soldi -= this.costoBost;
-                this.click *= 5;
-                this.costoBost *= 2;
+                this.click *= 2;
+                this.costoBost *= 5;
               }
               else {
-                alert("Non hai abbastanza soldi!")
+                alert("Non hai abbastanza soldi!");
               }
             },
+
+            buyUpgradeDipendenti: function() {
+              if (this.soldi >= this.costoUpgradeDipendenti){
+                this.soldi -= this.costoUpgradeDipendenti;
+                this.dipendentiValue *= 2;
+                this.costoUpgradeDipendenti *= 5;
+              }
+              else {
+                alert("Non hai abbastanza soldi!");
+              }
+            },
+
+            buyUpgradeNegozio: function() {
+              if (this.soldi >= this.costoUpgradeNegozio){
+                this.soldi -= this.costoUpgradeNegozio;
+                this.negozioValue *= 2;
+                this.costoUpgradeNegozio *= 5;
+              }
+              else {
+                alert("Non hai abbastanza soldi!");
+              }
+            },
+
+            buyCiboPlus: function() {
+              if (this.dipendentiEntrate + this.negozioEntrate > this.costoCibo * 10) {
+                this.costoCibo *= 10;
+                this.amountCibo *= 10;              
+              }
+              else {
+                alert("Non puoi aumentare le porzioni di cibo. Prova ad aumentare le entrate!");
+              }
+
+            }
           },
 
           mounted: function() {
             setInterval(this.ripetizione, 1000);
           },
+
+          computed: {
+            dipendentiEntrate: function(){
+              return this.dipendenti * this.dipendentiValue;
+            },
+            negozioEntrate: function(){
+              if (this.negozio >= 1){
+                return this.negozio * this.negozioValue;
+              }
+
+              else {
+                return 0;
+              }
+            }
+          }
 
         })
       </script>
