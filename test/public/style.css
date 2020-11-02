@@ -1,0 +1,42 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit; }
+
+html {
+  font-size: 62.5%; }
+
+body {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  line-height: 1.7;
+  color: #333;
+  padding: 3rem;
+  box-sizing: border-box; }
+
+h1 {
+  font-size: 6rem; }
+
+h2 {
+  font-size: 3rem; }
+
+p {
+  font-size: 1.6rem; }
+
+/*Buttons*/
+.btn {
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 1.5rem 4rem;
+  font-size: 1.6rem;
+  display: inline-block;
+  border-radius: 10rem;
+  transition: all .2s;
+  position: relative; }
+
+.btn-group {
+  background-color: #7ed56f; }
+  .btn-group__btn-secondary {
+    color: #333; }
