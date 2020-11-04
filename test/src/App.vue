@@ -1,6 +1,7 @@
 <template>
   <div id="app">
-    <app-upgrade/>
+    <app-upgrade />
+    <!--app-small-game /-->
   </div>
 </template>
 
@@ -13,7 +14,7 @@ export default {
   name: 'App',
   components: {
     appUpgrade: Upgrade,
-    //SmallGame,
+    //appSmallGame: SmallGame,
   }
 }
 </script>

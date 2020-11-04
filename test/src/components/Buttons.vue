@@ -1,30 +1,49 @@
 <template>
-  <div class="buttons">
-    <button @click="interruttore" class="btn btn-group__btn-secondary">{{ text }}</button>
-    <div v-if="mostra">
-      <div v-if="value === 'A'">A</div>
-      <div v-else-if="value === 'B'">B</div>
-      <div v-else-if="value === 'C'">C</div>
-      <div v-else-if="value === 'D'">D</div>
-      <div v-else>{{ value }}</div>
+  <div class="buttons" role="group">
+    <div>
+      <button @click="db=!db" class="btn">Dipendenti</button>
+      <div v-if="db">
+        <app-dipendenti />
+      </div>
     </div>
+    <div>
+      <button @click="nb=!nb" class="btn">Negozi</button>
+      <div v-if="nb">
+        Negozi
+      </div>
+    </div>
+
+    <div>
+      <button @click="tb=!tb" class="btn">Tempo</button>
+      <div v-if="tb">
+        Tempo
+      </div>
+    </div>
+    <div>
+      <button @click="cb=!cb" class="btn">Click</button>
+      <div v-if="cb">
+        Click
+      </div>
+    </div>
+
   </div>
 </template>
 
 <script>
-export default {
-  props: [ 'text', 'mostra', 'value' ],
+import Dipendenti from "./Dipendenti.vue"
 
-  methods: {
-    interruttore() {
-      this.mostra = !this.mostra;
-    },
-  },
+export default {
+  props: [
+    'text',
+    'mostra',
+    'db',
+    'nb',
+    'tb',
+    'cb',
+  ],
+
+  components: {
+    appDipendenti: Dipendenti, 
+  }
 }
 </script>
-
-<style scoped>
-div{
-  font-size: 30px;
-}
-</style>

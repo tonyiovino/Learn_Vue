@@ -6,7 +6,7 @@
             </h2>
             <p>Dipendenti: {{ dipendenti }}</p>
             <p>Negozio: {{ negozio }}</p>
-            <p>Cibo: {{ cibo }} unità -{{dipendenti * 10}}/{{ tempo/1000 }}s</p>
+            <p>Cibo: {{ cibo }} unità -{{ ciboSec }}/{{ tempo/1000 }}s</p>
         </header>
         <h3>Entrate dipendenti: {{ dipendentiEntrate }}$/{{ tempo/1000 }}s</h3>
         <h3>Entrate negozio: {{ negozioEntrate }}$/{{ tempo/1000 }}s</h3>
@@ -79,10 +79,9 @@
 
 <script>
   export default {
-    props: ["small-game"],
       data: function(){
         return{
-          soldi: 0,
+          soldi: 10000,
           click: 1,
 
           cibo: 1000,
@@ -117,7 +116,7 @@
       ripetizione: function() {
         if (this.cibo >= this.dipendentiEntrate && this.dipendenti > 0){
           this.addSoldi();
-          this.cibo -= this.dipendenti * 10;
+          this.cibo -= this.ciboSec;
         }
       },
 
@@ -135,6 +134,7 @@
           this.soldi -= this.costoDipendenti;
           this.dipendenti += 1;
           this.costoDipendenti *= 2;
+          this.ciboSec += this.dipendenti * 10;
         }
         else {
           alert("Non hai abbastanza soldi!")
@@ -145,6 +145,7 @@
           this.soldi -= this.costoNegozio;
           this.negozio += 1;
           this.costoNegozio *= 2;
+          this.ciboSec += this.negozio * 10;
         }
         else {
           alert("Non hai abbastanza soldi!")
@@ -226,7 +227,16 @@
         else {
           return 0;
         }
+      },
+      ciboSec: function(){
+        return (this.dipendenti * 10) + (this.negozio * 50);
       }
     },
   }
 </script>
+
+<style scoped>
+button {
+  padding: 20px;
+}
+</style>
