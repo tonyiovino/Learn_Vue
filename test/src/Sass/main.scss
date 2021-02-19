@@ -25,6 +25,7 @@ body {
     line-height: 1.7;
     color: $color-black;
     background-image: url("https://www.wallpapertip.com/wmimgs/3-37859_4k-ultra-4k-wallpaper-nature.jpg");
+    background-repeat: no-repeat;
     background-size: cover;
     padding: 3rem;
     
@@ -43,31 +44,37 @@ p {
     font-size: 1.6rem;
 }
 
-.buttons {
+.upgrade {
     background-color: rgba($color-white, 0.7);
-    padding: 3rem;
+    padding: 2rem;
     display: block;
+    height: 90vh;
+    
 }
 
 /*Buttons*/
 .btn {
     display: inline-block;
-    margin: 1rem 0;
+    margin: 1rem;
     font-weight: 400;
     width: 10rem;
     height: 5rem;
     color: $color-black;
     text-align: center;
     text-decoration: none;
-    vertical-align: middle;
+    
     user-select: none;
     background-color: $color-primary-light;
     border: solid $color-black 0.1rem;
     border-radius: 3rem;
-    
+
     &:hover {
         background-color: $color-primary-dark;
         transition: 0.5s;
         color: $color-white;
+    }
+
+    &__secondary{
+        font-size: large;
     }
 }
