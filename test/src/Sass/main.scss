@@ -2,79 +2,109 @@ $color-primary-light: #74b1e9;
 $color-primary: #0f28b4;
 $color-primary-dark: #010038;
 
+$color-black: #333;
 $color-white: #eee;
 $color-grey: #777;
-$color-black: #333;
 
 *,
 *::before,
 *::after {
-    margin: 0;
-    padding: 0;
+	margin: 0;
+	padding: 0;
 
-    box-sizing: inherit;
+	box-sizing: inherit;
 }
 
 html {
-    font-size: 62.5%;
+	font-size: 62.5%;
 }
 
 body {
-    font-family: "Lato", sans-serif;
-    font-weight: 400;
-    line-height: 1.7;
-    color: $color-black;
-    background-image: url("https://www.wallpapertip.com/wmimgs/3-37859_4k-ultra-4k-wallpaper-nature.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    padding: 3rem;
-    
-    box-sizing: border-box;
+    font-family: 'Segoe UI', 'Open Sans', 'Helvetica Neue', sans-serif;
+	// font-family: "Lato", sans-serif;
+	font-weight: 400;
+	line-height: 1.7;
+	color: $color-black;
+	padding: 3rem;
+
+	box-sizing: border-box;
 }
 
 h1 {
-    font-size: 6rem;
+	font-size: 6rem;
 }
 
 h2 {
-    font-size: 3rem;
+	font-size: 3rem;
 }
 
 p {
-    font-size: 1.6rem;
+	font-size: 1.6rem;
 }
 
-.upgrade {
-    background-color: rgba($color-white, 0.7);
-    padding: 2rem;
-    display: block;
-    height: 90vh;
-    
+.company {
+	background-color: $color-white;
+	padding: 2rem;
+	display: block;
+	height: 100vh;
+	
+}
+
+.buy {
+	border: solid #0f28b4 0.5rem;
+
+	&__dipendenti {
+		background-color: red;
+	}
+	&__negozi {
+		background-color: rebeccapurple;
+	}
+}
+
+.soldi {
+	display: flex;
+	background-color: goldenrod;
+
+	&__heading-primary{
+		font-size: 4rem;
+	}
+
+	&__money-btn {
+		font-size: 3rem;
+		padding: 1.5rem;
+		border-radius: 3rem;
+		border-color: $color-black;
+		background-color: $color-white;
+	
+		&:hover {
+			background-color: $color-black;
+			color: $color-white;
+		}
+	}
 }
 
 /*Buttons*/
 .btn {
-    display: inline-block;
-    margin: 1rem;
-    font-weight: 400;
-    width: 10rem;
-    height: 5rem;
-    color: $color-black;
-    text-align: center;
-    text-decoration: none;
-    
-    user-select: none;
-    background-color: $color-primary-light;
-    border: solid $color-black 0.1rem;
-    border-radius: 3rem;
+	display: inline-block;
+	margin: 1rem;
+	font-weight: 400;
+	width: 10rem;
+	height: 5rem;
+	color: $color-black;
+	text-align: center;
+	text-decoration: none;
+	
+	user-select: none;
+	background-color: $color-primary-light;
+	border: solid $color-black 0.1rem;
+	border-radius: 3rem;
 
-    &:hover {
-        background-color: $color-primary-dark;
-        transition: 0.5s;
-        color: $color-white;
-    }
+	&:hover {
+		background-color: $color-primary-dark;
+		color: $color-white;
+	}
 
-    &__secondary{
-        font-size: large;
-    }
+	&__secondary{
+		font-size: large;
+	}
 }
