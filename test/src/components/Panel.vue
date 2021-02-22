@@ -11,10 +11,16 @@
 		<app-upgrade
 			:value_dipendenti="value_dipendenti"
 			:value_negozi="value_negozi"
+			:value_click="value_click"
+			:value_tempo="value_tempo"
 			:price_upgrade_dipendenti="price_upgrade_dipendenti"
 			:price_upgrade_negozi="price_upgrade_negozi"
+			:price_upgrade_click="price_upgrade_click"
+			:price_upgrade_tempo="price_upgrade_tempo"
 			@upgradeDipendenti="upgradeDipendenti"
 			@upgradeNegozi="upgradeNegozi"
+			@upgradeClick="upgradeClick"
+			@upgradeTempo="upgradeTempo"
 		/>
 	</div>
 </template>
@@ -26,14 +32,21 @@ import Upgrade from "./Upgrade.vue"
 export default {
 
 	props: [
+		/* Buy Props */
 		'amount_dipendenti',
 		'amount_negozi',
 		'price_buy_dipendenti',
 		'price_buy_negozi',
-		'price_upgrade_dipendenti',
-		'price_upgrade_negozi',
+
+		/* Upgrade Props */
 		'value_dipendenti',
 		'value_negozi',
+		'value_click',
+		'value_tempo',
+		'price_upgrade_dipendenti',
+		'price_upgrade_negozi',
+		'price_upgrade_click',
+		'price_upgrade_tempo',
 	],
 
 	components: {
@@ -53,6 +66,12 @@ export default {
 		},
 		upgradeNegozi() {
 			this.$emit('upgradeNegozi')
+		},
+		upgradeClick() {
+			this.$emit('upgradeClick')
+		},
+		upgradeTempo() {
+			this.$emit('upgradeTempo')
 		},
 	}
 }

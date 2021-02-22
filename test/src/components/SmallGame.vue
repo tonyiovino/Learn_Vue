@@ -81,7 +81,7 @@
   export default {
       data: function(){
         return{
-          soldi: 10000,
+          soldi: 0,
           click: 1,
 
           cibo: 1000,
