@@ -1,0 +1,146 @@
+$color-primary-light: #74b1e9;
+$color-primary: #0f28b4;
+$color-primary-dark: #010038;
+
+$color-black: #333;
+$color-white: #eee;
+$color-grey: #777;
+
+*,
+*::before,
+*::after {
+	margin: 0;
+	padding: 0;
+
+	box-sizing: inherit;
+}
+
+html {
+	font-size: 62.5%;
+}
+
+body {
+	font-family: 'Lato', sans-serif;
+	font-weight: 400;
+	line-height: 1.7;
+	color: $color-black;
+	padding: 3rem;
+
+	box-sizing: border-box;
+}
+
+h1 {
+	font-size: 6rem;
+}
+
+h2 {
+	font-size: 3rem;
+}
+
+p {
+	font-size: 1.6rem;
+}
+
+.company {
+	background-color: $color-white;
+	padding: 2rem;
+	display: block;
+	height: 100vh;
+}
+
+.view-money-box {
+	width: 50vw;
+	margin: 0 auto;
+}
+.view-money {
+	font-size: 2rem;
+	display: flex;
+	flex-direction: row;
+	
+	&__amount {
+		font-size: inherit;
+		padding: 0 2.5rem;
+	}
+
+	&__second {
+		font-size: inherit;
+	}
+}
+
+.money-btn-box {
+	width: 50vw;
+	margin: 0 auto;
+	text-align: center;
+	padding: 3rem 0;
+	margin-bottom: 1.5rem;
+}
+
+.money-btn {
+	font-size: 2.5rem;
+	padding: 2.5rem 5rem;
+	border-style: solid;
+	border-color: $color-black;
+	border-radius: 4rem;
+	background-color: $color-white;
+	text-decoration: none;
+	outline: none;
+	cursor: pointer;
+
+	&:hover {
+		background-color: $color-black;
+		color: $color-white;
+	}
+}
+
+.panel-box {
+	width: 50vw;
+	margin: 0 auto;
+}
+
+.panel {
+	font-size: 2rem;
+
+}
+
+.buy {
+	border: solid $color-black 0.5rem;
+	padding: 1rem;
+	margin-bottom: 2rem;
+
+	&__heading-primary {
+		font-size: 3rem;
+		width: 70vw;
+	}
+	&__unorder-list {
+		border: solid $color-black 0.5rem;
+	}
+}
+
+.upgrade {
+	border: solid $color-black 0.5rem;
+	padding: 1rem;
+
+	&__heading-primary {
+		font-size: 3rem;
+		width: 70vw;
+	}
+	&__unorder-list {
+		border: solid $color-black 0.5rem;
+	}
+}
+
+.item-list {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	border: solid $color-black 0.25rem;
+	margin: 1rem;
+	
+}
+
+.item {
+
+	&__heading-primary {
+		font-size: 2rem;
+	}
+}
