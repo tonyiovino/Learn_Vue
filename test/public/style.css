@@ -75,7 +75,8 @@ p {
 
 .buy {
   border: solid #333 0.5rem;
-  padding: 1rem; }
+  padding: 1rem;
+  margin-bottom: 2rem; }
   .buy__heading-primary {
     font-size: 3rem;
     width: 70vw; }

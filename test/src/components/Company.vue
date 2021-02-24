@@ -49,7 +49,7 @@ export default {
 	data() {
 		return {
 			Soldi: {
-				quantità: 0,
+				quantità: 2000,
 				sec: 0,
 			},
 			Dipendenti: {
