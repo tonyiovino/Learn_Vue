@@ -4,26 +4,21 @@
 		<ul class="buy__unorder-list">
 			<li class="item-list">
 				<span>Dipendenti: {{ dipendenti.quantità }}</span>
-				<button @click="buy_dipendenti">Compra: {{ dipendenti.costo_buy }}$</button>
+				<button @click="buy_dipendenti">Compra: {{ dipendenti.costo_buy.toFixed(2) }}$</button>
 			</li>
 			<li class="item-list">
 				<span>Negozi: {{ negozi.quantità }}</span>
-				<button @click="buy_negozi">Compra: {{ negozi.costo_buy }}$</button>
+				<button @click="buy_negozi">Compra: {{ negozi.costo_buy.toFixed(2) }}$</button>
 			</li>
 		</ul>
 	</div>
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
-import { mapMutations } from 'vuex';
+import { mapGetters, mapMutations } from 'vuex';
 
 export default {
-
-	computed: {
-		...mapGetters(['dipendenti', 'negozi'])
-	},
-
+	
 	methods: {
 		...mapMutations(['buyDipendenti', 'buyNegozi']),
 
@@ -33,6 +28,10 @@ export default {
 		buy_negozi: function() {
 			this.buyNegozi()
 		},
-	}
+	},
+
+	computed: {
+		...mapGetters(['dipendenti', 'negozi'])
+	},
 }
 </script>

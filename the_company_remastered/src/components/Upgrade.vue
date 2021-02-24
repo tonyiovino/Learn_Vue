@@ -3,20 +3,20 @@
 		<h1 class="upgrade__heading-primary">Upgrade</h1>
 		<ul class="upgrade__unorder-list">
 			<li class="item-list">
-				<span>Valore dipendente: {{ dipendenti.valore }}</span>
-				<button @click="upgrade_dipendenti">Upgrade: {{ dipendenti.costo_upgrade }}$</button>
+				<span>Valore dipendente: {{ dipendenti.valore.toFixed(2) }}</span>
+				<button @click="upgrade_dipendenti">Upgrade: {{ dipendenti.costo_upgrade.toFixed(2) }}$</button>
 			</li>
 			<li class="item-list">
-				<span>Valore negozio: {{ negozi.valore }}</span>
-				<button @click="upgrade_negozi">Upgrade: {{ negozi.costo_upgrade }}$</button>
+				<span>Valore negozio: {{ negozi.valore.toFixed(2) }}</span>
+				<button @click="upgrade_negozi">Upgrade: {{ negozi.costo_upgrade.toFixed(2) }}$</button>
 			</li>
 			<li class="item-list">
-				<span>Valore click: {{ click.valore }} </span>
-				<button @click="upgrade_click">Upgrade: {{ click.costo_upgrade }}$</button>
+				<span>Valore click: {{ click.valore.toFixed(2) }} </span>
+				<button @click="upgrade_click">Upgrade: {{ click.costo_upgrade.toFixed(2) }}$</button>
 			</li>
 			<li class="item-list">
 				<span>Valore tempo: {{ tempo.quantità/1000 }} s</span>
-				<button @click="upgrade_tempo">Upgrade: {{ tempo.costo_upgrade }}$</button>
+				<button @click="upgrade_tempo">Upgrade: {{ tempo.costo_upgrade.toFixed(2) }}$</button>
 			</li>
 		</ul>
 	</div>
@@ -28,16 +28,13 @@ import { mapMutations } from 'vuex';
 
 export default {
 
-	computed: {
-		...mapGetters(['dipendenti', 'negozi', 'click', 'tempo'])
-	},
-
 	methods: {
 		...mapMutations([
 			'upgradeDipendenti',
 			'upgradeNegozi',
 			'upgradeClick',
-			'upgradeTempo'
+			'upgradeTempo',
+			'addSec'
 		]),
 
 		upgrade_dipendenti: function() {
@@ -52,6 +49,10 @@ export default {
 		upgrade_tempo: function() {
 			this.upgradeTempo()
 		},
-	}
+	},
+
+	computed: {
+		...mapGetters(['dipendenti', 'negozi', 'click', 'tempo'])
+	},
 }
 </script>

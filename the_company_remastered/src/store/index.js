@@ -6,18 +6,20 @@ Vue.use(Vuex)
 export default new Vuex.Store({
 	state: {
 		Soldi: {
-			quantità: 100000,
+			quantità: 10000,
 			sec: 0,
 		},
 		Dipendenti: {
 			quantità: 0,
-			valore: 1,
+			valore: 10,
+			sec: 0,
 			costo_buy: 10,
 			costo_upgrade: 100,
 		},
 		Negozi: {
 			quantità: 0,
-			valore: 10,
+			valore: 100,
+			sec: 0,
 			costo_buy: 1000,
 			costo_upgrade: 1500,
 		},
@@ -26,6 +28,7 @@ export default new Vuex.Store({
 			costo_upgrade: 30000,
 		},
 		Click: {
+			quantità: 0,
 			valore: 0.1,
 			costo_upgrade: 1,
 		},
@@ -45,7 +48,7 @@ export default new Vuex.Store({
 		},
 		click: function(state){
 			return state.Click
-		}
+		},
 	},
 	mutations: {
 		// mod_counter: function(state){
@@ -54,10 +57,11 @@ export default new Vuex.Store({
 		// },
 		soldiClick: function(state){
 			state.Soldi.quantità += state.Click.valore;
+			state.Click.quantità++;
 			return state
 		},
 		addSec: function(state) {
-			state.Soldi.sec = state.dipendentiEntrate + state.negoziEntrate;
+			state.Soldi.sec = state.Dipendenti.sec + state.Negozi.sec;
 			state.Soldi.quantità += state.Soldi.sec;
 			return state
 		},
@@ -67,6 +71,7 @@ export default new Vuex.Store({
 				state.Soldi.quantità -= state.Dipendenti.costo_buy;
 				state.Dipendenti.quantità += 1;
 				state.Dipendenti.costo_buy *= 1.2;
+				state.Dipendenti.sec += state.Dipendenti.valore
 			}
 			else {
 				alert("Non hai abbastanza soldi!");
@@ -77,7 +82,8 @@ export default new Vuex.Store({
 			if (state.Soldi.quantità >= state.Negozi.costo_buy) {
 				state.Soldi.quantità -= state.Negozi.costo_buy;
 				state.Negozi.quantità += 1;
-				state.Negozi.costo_buy *= 1.2
+				state.Negozi.costo_buy *= 1.2;
+				state.Negozi.sec += state.Negozi.valore
 			} else {
 				alert("Non hai abbastanza soldi!");
 			}
@@ -87,8 +93,9 @@ export default new Vuex.Store({
 		upgradeDipendenti: function(state) {
 			if (state.Soldi.quantità >= state.Dipendenti.costo_upgrade){
 				state.Soldi.quantità -= state.Dipendenti.costo_upgrade;
-				state.Dipendenti.valore *= 1.2;
-				state.Dipendenti.costo_upgrade *= 1.5
+				state.Dipendenti.valore *= 1.4;
+				state.Dipendenti.costo_upgrade *= 1.6;
+				state.Dipendenti.sec *= 1.4
 			}
 			else {
 				alert("Non hai abbastanza soldi!");
@@ -98,8 +105,9 @@ export default new Vuex.Store({
 		upgradeNegozi: function(state) {
 			if (state.Soldi.quantità >= state.Negozi.costo_upgrade) {
 				state.Soldi.quantità -= state.Negozi.costo_upgrade;
-				state.Negozi.valore *= 1.2;
-				state.Negozi.costo_upgrade *= 1.5
+				state.Negozi.valore *= 1.4;
+				state.Negozi.costo_upgrade *= 1.6
+				state.Dipendenti.sec *= 1.4
 			} else {
 				alert("Non hai abbastanza soldi!");
 			}
@@ -120,7 +128,7 @@ export default new Vuex.Store({
 				if (state.Tempo.quantità > 50) {
 					state.Soldi.quantità -= state.Tempo.costo_upgrade;
 					state.Tempo.quantità -= 50;
-					state.Tempo.costo_upgrade *= 1.8
+					state.Tempo.costo_upgrade *= 1.8;
 				} else {
 					alert("Hai raggiunto la velocità massima!");
 				}
