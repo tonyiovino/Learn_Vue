@@ -1,55 +1,49 @@
 <template>
 	<div class="company">
 		<!-- Soldi -->
-		<p>oleeee: {{ dipendenti.sec }}</p>
-		<p>feiuiuebfe: {{ negozi.sec }}</p>
+		<p>oleeee: {{ dipendentiSec }}</p>
+		<p>feiuiuebfe: {{ negoziSec }}</p>
 
-		<div class="view-money-box">
-			<div class="view-money">
-				<span class="view-money__amount">Soldi: {{ soldi.quantità.toFixed(2) }}$</span>
-				<span class="view-money__second">{{ soldi.sec.toFixed(2) }}$/{{ tempo.quantità/1000 }}s</span>
+		<div class="money-box">
+			<div class="money-box__data">
+				<span class="money-box__amount">Soldi: {{ soldiQty.toFixed(1) }}$</span>
+				<span class="money-box__second">{{ soldiSec.toFixed(2) }}$/{{ tempoQty/1000 }}s</span>
+			</div>
+			<div class="money-box__actions">
+				<button class="btn btn--primary" @click="guadagnaSoldi">Lavora: +{{ clickValore.toFixed(2)}}$</button>
 			</div>
 		</div>
-		<!-- Money Click Button -->
-		<div class="money-btn-box">
-			<button class="money-btn" @click="soldi_click">
-				Lavora: +{{ click.valore.toFixed(2)}}$
-			</button>
-		</div>
+		
 		<!-- Panel -->
 		<div class="panel-box">
 			<!-- <app-panel/> -->
 		</div>
-		<div class="achievements-box">
-			<app-achievements/>
-		</div>
+		
+		<app-achievements/>
 	</div>
 </template>
 
 <script>
-import { mapGetters, mapMutations } from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
 // import Panel from './Panel.vue'
 import Achievements from './Achievements.vue'
 
 export default {
 
 	methods: {
-		...mapMutations(['soldiClick', 'addSec']),
-
-		soldi_click: function() {
-			this.soldiClick()
-		},
-		add_sec: function () {
-			this.addSec()
-		},
+		...mapActions([
+			'guadagnaSoldi', 'addSec'
+		])
 	},
 
 	computed: {
-		...mapGetters(['soldi', 'click', 'tempo', 'dipendenti', 'negozi']),
+		...mapGetters([
+			'soldiQty', 'soldiSec', 'tempoQty', 'clickQty', 'dipendentiSec', 'negoziSec', 'clickValore'
+		]),
 	},
 
-	mounted () {
-		setInterval(this.add_sec, this.tempo.quantità);
+	created () {
+		setInterval(this.addSec, this.tempoQty);
 	},
 
 	components: {

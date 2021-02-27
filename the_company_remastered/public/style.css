@@ -16,88 +16,57 @@ body {
   padding: 3rem;
   box-sizing: border-box; }
 
-h1 {
-  font-size: 6rem; }
+.heading-primary {
+  font-size: 4rem;
+  font-weight: 300;
+  text-align: center;
+  letter-spacing: 2rem; }
 
-h2 {
-  font-size: 3rem; }
+.heading-secondary {
+  font-size: 3rem;
+  font-weight: 300;
+  text-align: center; }
 
-p {
-  font-size: 1.6rem; }
+.ulist {
+  font-size: 1.6rem;
+  list-style-type: none; }
 
 .company {
   background-color: #eee;
-  padding: 2rem;
-  display: block;
-  height: 100vh; }
-
-.view-money-box {
-  width: 50vw;
-  margin: 0 auto; }
-
-.view-money {
-  font-size: 2rem;
   display: flex;
-  flex-direction: row; }
-  .view-money__amount {
-    font-size: inherit;
-    padding: 0 2.5rem; }
-  .view-money__second {
-    font-size: inherit; }
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  min-height: 60vh; }
 
-.money-btn-box {
-  width: 50vw;
-  margin: 0 auto;
-  text-align: center;
-  padding: 3rem 0;
-  margin-bottom: 1.5rem; }
+.money-box {
+  font-size: 3rem;
+  width: 60vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-bottom: 3rem; }
+  .money-box__data {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 2rem; }
+  .money-box__actions {
+    display: flex;
+    justify-content: space-evenly; }
 
-.money-btn {
-  font-size: 2.5rem;
-  padding: 2.5rem 5rem;
+.btn {
+  font-size: 2rem;
+  padding: 2rem 4rem;
   border-style: solid;
-  border-color: #333;
   border-radius: 4rem;
-  background-color: #eee;
   text-decoration: none;
   outline: none;
   cursor: pointer; }
-  .money-btn:hover {
-    background-color: #333;
-    color: #eee; }
-
-.panel-box {
-  width: 50vw;
-  margin: 0 auto; }
-
-.panel {
-  font-size: 2rem; }
-
-.buy {
-  border: solid #333 0.5rem;
-  padding: 1rem;
-  margin-bottom: 2rem; }
-  .buy__heading-primary {
-    font-size: 3rem;
-    width: 70vw; }
-  .buy__unorder-list {
-    border: solid #333 0.5rem; }
-
-.upgrade {
-  border: solid #333 0.5rem;
-  padding: 1rem; }
-  .upgrade__heading-primary {
-    font-size: 3rem;
-    width: 70vw; }
-  .upgrade__unorder-list {
-    border: solid #333 0.5rem; }
-
-.item-list {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  border: solid #333 0.25rem;
-  margin: 1rem; }
-
-.item__heading-primary {
-  font-size: 2rem; }
+  .btn--primary {
+    border-color: #333;
+    background-color: #eee; }
+    .btn--primary:hover {
+      color: #eee;
+      background-color: #333; }
