@@ -1,5 +1,7 @@
 <template>
 	<div id="app">
+		<h1 class="heading-primary">The Company</h1>
+		
 		<app-company/>
 		<!-- {{ counter }}
 		{{ speed }}

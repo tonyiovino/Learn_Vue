@@ -1,9 +1,10 @@
 <template>
 	<div class="achievements">
-		<h1 class="achievements__heading-primary">Achievements</h1>
-		<ul class="achievements__unorder-list">
-			<li class="achievements-list">
-				<span>Clicks: {{ click.quantità }}</span>
+		<h2 class="heading-secondary">Achievements</h2>
+
+		<ul class="ulist">
+			<li class="ulist__item">
+				<span>Clicks: {{ clickQty }}</span>
             </li>
 		</ul>
 	</div>
@@ -19,7 +20,9 @@ export default {
 	},
 
 	computed: {
-        ...mapGetters(['click']),
+        ...mapGetters([
+			'clickQty'
+		]),
 
         /*achievementClick: function() {
 			alert('hey');
