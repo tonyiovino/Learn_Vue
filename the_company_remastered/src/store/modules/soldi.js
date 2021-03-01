@@ -28,7 +28,7 @@ const actions = {
         commit('incrClick')
     },
 
-    addSec: function( { commit, rootState } ) {
+    addSec: function({ commit, rootState }) {
         const increment = rootState.dipendenti.sec + rootState.negozi.sec
         commit('setSec', increment)
         commit('incrQty', increment)

@@ -7,7 +7,11 @@ const state = {
 }
 
 const getters = {
-    dipendentiSec: state => state.sec
+    dipendentiQty: state => state.qty,
+    dipendentiValore: state => state.valore,
+    dipendentiSec: state => state.sec,
+    dipendentiCostoBuy: state => state.costo_buy,
+    dipendentiCostoUpgrade: state => state.costo_upgrade
 }
 
 const mutations = {

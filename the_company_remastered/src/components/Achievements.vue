@@ -23,17 +23,6 @@ export default {
         ...mapGetters([
 			'clickQty'
 		]),
-
-        /*achievementClick: function() {
-			alert('hey');
-            if (this.click.quantità == 100){
-            //     alert('Hai raggiunto un obiettivo!');
-            //     return this.click.valore *= 1.1
-            // } else {
-				alert('Hai raggiunto un obiettivo!');
-			}
-            return 0;
-        }*/
 	},
 }
 </script>

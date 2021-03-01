@@ -30,6 +30,8 @@ body {
 .ulist {
   font-size: 1.6rem;
   list-style-type: none; }
+  .ulist__item {
+    font-size: 1.6rem; }
 
 .company {
   background-color: #eee;
