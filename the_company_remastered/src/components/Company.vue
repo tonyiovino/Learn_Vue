@@ -1,23 +1,21 @@
 <template>
 	<div class="company">
 		<!-- Soldi -->
-		<p>oleeee: {{ dipendentiSec }}</p>
-		<p>feiuiuebfe: {{ negoziSec }}</p>
+		<p>Dipendenti al sec: {{ dipendentiSoldiSec }}</p>
+		<p>Negozi al sec: {{ negoziSoldiSec }}</p>
+		<p><strong>Tempo {{ tempoQty }}</strong></p>
 
 		<div class="money-box">
 			<div class="money-box__data">
 				<span class="money-box__amount">Soldi: {{ soldiQty.toFixed(2) }}$</span>
-				<span class="money-box__second">{{ soldiSec.toFixed(2) }}$/{{ tempoQty/1000 }}s</span>
+				<span class="money-box__second">{{ soldiSec.toFixed(2) }}$/{{ tempoValore/1000 }}s</span>
 			</div>
 			<div class="money-box__actions">
 				<button class="btn btn--primary" @click="guadagnaSoldi">Lavora: +{{ clickValore.toFixed(2)}}$</button>
 			</div>
 		</div>
 
-		<!-- Panel -->
-		<div class="panel-box">
-			<app-panel/>
-		</div>
+		<app-panel/>
 
 		<app-achievements/>
 	</div>
@@ -32,8 +30,7 @@ export default {
 
 	methods: {
 		...mapActions([
-			'guadagnaSoldi',
-			'addSec'
+			'guadagnaSoldi','addSec'
 		])
 	},
 
@@ -42,15 +39,17 @@ export default {
 			'soldiQty',
 			'soldiSec',
 			'tempoQty',
+			'tempoValore',
 			'clickQty',
-			'dipendentiSec',
-			'negoziSec',
-			'clickValore'
+			'clickValore',
+			'dipendentiSoldiSec',
+			'negoziSoldiSec'
 		]),
-	},
 
+	},
+	
 	created () {
-		setInterval(this.addSec, this.tempoQty);
+		setInterval(this.addSec, this.tempoValore);
 	},
 
 	components: {

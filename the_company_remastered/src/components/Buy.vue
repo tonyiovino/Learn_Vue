@@ -1,6 +1,6 @@
 <template>
 	<div class="buy">
-		<h1 class="buy__heading-primary">Buy</h1>
+		<h1 class="heading-secondary">Buy</h1>
 		<ul class="buy__unorder-list">
 			<li class="item-list">
 				<span class="item-list__item-viewer">Dipendenti: {{ dipendentiQty }}</span>
@@ -15,12 +15,12 @@
 </template>
 
 <script>
-import { mapGetters, mapMutations } from 'vuex';
+import { mapGetters, mapActions } from 'vuex';
 
 export default {
 	
 	methods: {
-		...mapMutations(['buyDipendenti', 'buyNegozi']),
+		...mapActions(['buyDipendenti', 'buyNegozi']),
 	},
 
 	computed: {
