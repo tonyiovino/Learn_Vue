@@ -153,20 +153,10 @@ export default {
 
 	computed: {
 		dipendentiEntrate: function(){
-			if (this.Dipendenti.quantità >= 1){
-				return this.Dipendenti.quantità * this.Dipendenti.valore;
-			}
-			else {
-				return 0;
-			}
+			return this.Dipendenti.quantità * this.Dipendenti.valore;
 		},
 		negoziEntrate: function(){
-			if (this.Negozi.quantità >= 1){
-				return this.Negozi.quantità * this.Negozi.valore;
-			}
-			else {
-				return 0;
-			}
+			return this.Negozi.quantità * this.Negozi.valore;
 		},
 	},
 
