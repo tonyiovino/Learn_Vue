@@ -1,5 +1,5 @@
 const state = {
-	qty: 10000,
+	qty: 10,
 	soldi_for_sec: 0,
 }
 
@@ -9,43 +9,23 @@ const getters = {
 }
 
 const mutations = {
-	// setQty: (state, newQty) => {
-	// 	state.qty = newQty
-	// },
-
-	incrQty: (state, increment) => {
-		state.qty += increment
-	},
-
-	decrQty: (state, increment) => {
-		state.qty -= increment
-	},
-
-	setSec: (state, newSec) => {
-		state.soldi_for_sec = newSec
-	}
+	setQty: (state, newQty) => state.qty = newQty,
+	setSoldiSec: (state, newSec) => state.soldi_for_sec = newSec,
+	incrSoldiQty: (state, increment) => state.qty += increment,
+	decrSoldiQty: (state, decrement) => state.qty -= decrement
 }
 
 const actions = {
-	guadagnaSoldi: function({ commit, rootState }) {
-		commit('incrQty', rootState.click.valore)
+	soldiClick: function({ commit, rootState }) {
+		commit('incrSoldiQty', rootState.click.valore)
 		commit('countClick')
 	},
 
-	// togliSoldi: function({ commit }){
-	// 	commit('decrQty', decrement)
-	// 	// deve poter essere un valore sia per le
-	// 	// operazioni "Buy" e sia per "Upgrade"
-	// 	// tramite la variabile presente in ogni modulo
-	// 	// tranne soldi.js, che si chiamano "costo_buy" e
-	// 	// "costo_upgrade"
-	// },
-
 	addSec: function({ commit, rootState }) {
 		const increment = rootState.dipendenti.soldi_sec + rootState.negozi.soldi_sec
-		rootState.tempo.qty++
-		commit('setSec', increment)
-		commit('incrQty', increment)
+		commit('setSoldiSec', increment)
+		commit('incrSoldiQty', increment)
+		commit('incrQtyTempo')
 	}
 }
 

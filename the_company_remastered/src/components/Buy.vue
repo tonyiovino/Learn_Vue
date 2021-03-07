@@ -1,6 +1,6 @@
 <template>
 	<div class="buy">
-		<h1 class="heading-secondary">Buy</h1>
+		<h2 class="heading-secondary">Buy</h2>
 		<ul class="buy__unorder-list">
 			<li class="item-list">
 				<span class="item-list__item-viewer">Dipendenti: {{ dipendentiQty }}</span>

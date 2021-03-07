@@ -1,33 +1,28 @@
 const state = {
 	qty: 0,
 	valore: 1000,
-	costo_upgrade: 30000
+	costo_upgrade: 30000,
 }
 
 const getters = {
 	tempoValore: state => state.valore,
 	tempoQty: state => state.qty,
+	tempAchvReqOre: state => state.achv_req.ore,
+	tempAchvReqMinuti: state => state.achv_req.minuti
 	
 }
 
 const mutations = {
-	incrQtyTempo: function (state) {
-		state.qty++
-	},
-
-	decrTempo: function (state) {
-		state.valore -= 500
-		state.costo_upgrade *= 1.4
-	}
+	incrQtyTempo: state => state.qty++,
+	decrValoreTempo: state => state.valore -= 50,
+	incrCostoUpgradeTempo: state => state.costo_upgrade *= 1.6
 }
 
 const actions = {
-	onesec: function ({ commit }) {
-		commit('incrQtyTempo')
-	},
 	upgradeTempo: function ({ commit }) {
-		commit('decrTempo')
-	}
+		commit('decrValoreTempo')
+		commit('incrCostoUpgradeTempo')
+	},
 }
 
 export default {

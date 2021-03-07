@@ -1,6 +1,6 @@
 const state = {
 	qty: 0,
-	valore: 100,
+	valore: 10,
 	soldi_sec: 0,
 	costo_buy: 1000,
 	costo_upgrade: 1500
@@ -15,16 +15,32 @@ const getters = {
 }
 
 const mutations = {
-	incrQtyNegozi: function(state) {
-		state.qty++
-		state.costo_buy *= 1.4
-		state.soldi_sec += state.valore
-	}
+	incrQtyNegozi: state => state.qty++,
+	incrSoldiSecNegozi: state => state.soldi_sec += state.valore,
+	incrCostoBuyNegozi: state => state.costo_buy *= 1.6,
+	incrCostoUpgradeNegozi: state => state.costo_upgrade *= 1.6,
+	incrValoreNegozi: state => state.valore *= 1.4
 }
 
 const actions = {
-	buyNegozi: function({ commit }){
-		commit('incrQtyNegozi')
+	buyNegozi: function({ commit, rootState }){
+		if (rootState.soldi.qty >= state.costo_buy){
+			commit('decrSoldiQty', state.costo_buy)
+			commit('incrQtyNegozi')
+			commit('incrCostoBuyNegozi')
+			commit('incrSoldiSecNegozi')
+		} else {
+			alert('Non hai abbastanza soldi!')
+		}
+	},
+	upgradeNegozi: function ({ commit, rootState }) {
+		if (rootState.soldi.qty >= state.costo_upgrade) {
+			commit('decrSoldiQty', state.costo_upgrade)
+			commit('incrValoreNegozi')
+			commit('incrCostoUpgradeNegozi')
+		} else {
+			alert('Non hai abbastanza soldi!')
+		}
 	}
 }
 

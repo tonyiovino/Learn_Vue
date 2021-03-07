@@ -2,30 +2,30 @@ const state = {
 	qty: 0,
 	valore: 0.1,
 	costo_upgrade: 1,
-	achv_clicks_req: 50,		// Clicks per raggiungere l'achievement
+	achv_req: 50,				// Clicks per raggiungere l'achievement
 	achv_upgrade: 1.1			// Moltiplicatore aggiuntivo al valore di un solo click
 }
 
 const getters = {
 	clickQty: state => state.qty,
 	clickValore: state => state.valore,
-	clickAchvClicksReq: state => state.achv_clicks_req
+	clickAchvReq: state => state.achvs_req,
 }
 
 const mutations = {
 	countClick: state => state.qty++,
 	incrClickValore: state => state.valore *= state.achv_upgrade,
-	incrAchvClicksReq: state => state.achv_clicks_req *= 5,
-	incrAchvUpgrade: state => state.achv_upgrade *= 1.6
+	incrAchvClicksReq: state => state.achvs_req *= 5,
+	incrAchvUpgrade: state => state.achv_upgrade *= 1.4
 }
 
 const actions = {
 	achvClick: function ({ commit }) {
-		if (state.qty >= state.achv_clicks_req) {
-			alert("Sto potenziando il click di: " + state.achv_upgrade.toFixed(1))
+		if (state.qty >= state.achvs_req) {
 			commit('incrClickValore')
 			commit('incrAchvClicksReq')
 			commit('incrAchvUpgrade')
+			alert("Click potenziato di: " + state.achv_upgrade.toFixed(1))
 		} else {
 			alert("Non hai raggiunto l'obiettivo!")
 		}
