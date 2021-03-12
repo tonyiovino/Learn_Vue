@@ -3,6 +3,8 @@
 		<!-- Soldi -->
 		<p>Dipendenti al sec: {{ dipendentiSoldiSec }}</p>
 		<p>Negozi al sec: {{ negoziSoldiSec }}</p>
+		<p>Tempo: {{ tempoQty }}</p>
+		<button class="btn prestige" @click="prestigeAll">Prestige</button>
 
 		<div class="money-box">
 			<div class="money-box__data">
@@ -14,22 +16,26 @@
 			</div>
 		</div>
 
-		<!-- <app-achievements/> -->
-
-		<app-panel/>
+		<div class="panel">
+			<app-buy/>
+			<app-upgrade/>
+		</div>
 	</div>
 </template>
 
 <script>
 import { mapGetters, mapActions } from 'vuex'
-import Panel from './Panel.vue'
+import Buy from './Buy.vue'
+import Upgrade from "./Upgrade.vue"
 // import Achievements from './Achievements.vue'
 
 export default {
 
 	methods: {
 		...mapActions([
-			'soldiClick', 'addSec'
+			'soldiClick',
+			'addSec',
+			'prestigeAll'
 		])
 	},
 
@@ -37,15 +43,16 @@ export default {
 		...mapGetters([
 			'soldiQty',
 			'soldiSec',
-			'tempoQtySecondi',
-			'tempoQtyMinuti',
-			'tempoQtyOre',
+			'tempoQty',
 			'tempoValore',
 			'clickQty',
 			'clickValore',
 			'dipendentiSoldiSec',
 			'negoziSoldiSec'
 		]),
+		...mapActions([
+			''
+		])
 	},
 
 	created () {
@@ -53,7 +60,8 @@ export default {
 	},
 
 	components: {
-		appPanel: Panel,
+		appBuy: Buy,
+		appUpgrade: Upgrade,
 		// appAchievements: Achievements,
 	}
 }

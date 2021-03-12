@@ -1,5 +1,5 @@
 const state = {
-	qty: 10,
+	qty: 10000,
 	soldi_for_sec: 0,
 }
 
@@ -9,9 +9,11 @@ const getters = {
 }
 
 const mutations = {
-	setQty: (state, newQty) => state.qty = newQty,
+	setSoldiQty: (state, newQty) => state.qty = newQty,
 	setSoldiSec: (state, newSec) => state.soldi_for_sec = newSec,
+
 	incrSoldiQty: (state, increment) => state.qty += increment,
+
 	decrSoldiQty: (state, decrement) => state.qty -= decrement
 }
 

@@ -15,11 +15,16 @@ const getters = {
 }
 
 const mutations = {
+	setNegoziQty: (state, newQty) => state.qty = newQty,
+	setNegoziValore: (state, newValore) => state.valore = newValore,
+	setNegoziCostoBuy: (state, newCostoBuy) => state.costo_buy = newCostoBuy,
+	setNegoziCostoUpgrade: (state, newCostoUpgrade) => state.costo_upgrade = newCostoUpgrade,
+
 	incrQtyNegozi: state => state.qty++,
 	incrSoldiSecNegozi: state => state.soldi_sec += state.valore,
-	incrCostoBuyNegozi: state => state.costo_buy *= 1.6,
-	incrCostoUpgradeNegozi: state => state.costo_upgrade *= 1.6,
-	incrValoreNegozi: state => state.valore *= 1.4
+	incrCostoBuyNegozi: state => state.costo_buy *= 1.8,
+	incrCostoUpgradeNegozi: state => state.costo_upgrade *= 2,
+	incrValoreNegozi: state => state.valore *= 1.2
 }
 
 const actions = {

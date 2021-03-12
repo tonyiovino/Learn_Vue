@@ -4,11 +4,11 @@
 		<ul class="buy__unorder-list">
 			<li class="item-list">
 				<span class="item-list__item-viewer">Dipendenti: {{ dipendentiQty }}</span>
-				<button class="item-list__item-button" @click="buyDipendenti">Compra: {{ dipendentiCostoBuy.toFixed(2) }}$</button>
+				<button class="btn item-list__item-button" @click="buyDipendenti">Compra: {{ dipendentiCostoBuy.toFixed(2) }}$</button>
 			</li>
 			<li class="item-list">
 				<span class="item-list__item-viewer">Negozi: {{ negoziQty }}</span>
-				<button class="item-list__item-button" @click="buyNegozi">Compra: {{ negoziCostoBuy.toFixed(2) }}$</button>
+				<button class="btn item-list__item-button" @click="buyNegozi">Compra: {{ negoziCostoBuy.toFixed(2) }}$</button>
 			</li>
 		</ul>
 	</div>

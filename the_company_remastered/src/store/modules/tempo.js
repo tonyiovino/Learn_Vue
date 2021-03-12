@@ -5,17 +5,19 @@ const state = {
 }
 
 const getters = {
-	tempoValore: state => state.valore,
 	tempoQty: state => state.qty,
-	tempAchvReqOre: state => state.achv_req.ore,
-	tempAchvReqMinuti: state => state.achv_req.minuti
-	
+	tempoValore: state => state.valore,
+	tempoCostoUpgrade: state => state.costo_upgrade
 }
 
 const mutations = {
+	setTempoValore: (state, newValore) => state.valore = newValore,
+	setTempoCostoUpgrade: (state, newCostoUpgrade) => state.costo_upgrade = newCostoUpgrade,
+
 	incrQtyTempo: state => state.qty++,
-	decrValoreTempo: state => state.valore -= 50,
-	incrCostoUpgradeTempo: state => state.costo_upgrade *= 1.6
+	incrCostoUpgradeTempo: state => state.costo_upgrade *= 2,
+
+	decrValoreTempo: state => state.valore -= 50
 }
 
 const actions = {

@@ -4,20 +4,20 @@
 		<ul class="upgrade__unorder-list">
 			<li class="item-list">
 				<span class="item-list__item-viewer">Valore dipendente: {{ dipendentiValore.toFixed(2) }}</span>
-				<button class="item-list__item-button" @click="upgradeDipendenti">Upgrade: {{ dipendentiCostoUpgrade.toFixed(2) }}$</button>
+				<button class="btn item-list__item-button" @click="upgradeDipendenti">Upgrade: {{ dipendentiCostoUpgrade.toFixed(2) }}$</button>
 			</li>
 			<li class="item-list">
 				<span class="item-list__item-viewer">Valore negozio: {{ negoziValore.toFixed(2) }}</span>
-				<button class="item-list__item-button" @click="upgradeNegozi">Upgrade: {{ negoziCostoUpgrade.toFixed(2) }}$</button>
-			</li>
-			<!--<li class="item-list">
-				<span class="item-list__item-viewer">Valore click: {{ clickValore.toFixed(2) }} </span>
-				<button class="item-list__item-button" @click="upgradeClick">Upgrade: {{ clickCostoUpgrade.toFixed(2) }}$</button>
+				<button class="btn item-list__item-button" @click="upgradeNegozi">Upgrade: {{ negoziCostoUpgrade.toFixed(2) }}$</button>
 			</li>
 			<li class="item-list">
+				<span class="item-list__item-viewer">Valore click: {{ clickValore.toFixed(2) }} </span>
+				<button class="btn item-list__item-button" @click="upgradeClick">Upgrade: {{ clickCostoUpgrade.toFixed(2) }}$</button>
+			</li>
+			<!--li class="item-list">
 				<span class="item-list__item-viewer">Valore tempo: {{ tempoQuantità/1000 }}s</span>
-				<button class="item-list__item-button" @click="upgradeTempo">Upgrade: {{ tempoCostoUpgrade.toFixed(2) }}$</button-->
-			<!--/li-->
+				<button class="item-list__item-button" @click="upgradeTempo">Upgrade: {{ tempoCostoUpgrade.toFixed(2) }}$</button>
+			</li-->
 		</ul>
 	</div>
 </template>
@@ -31,7 +31,7 @@ export default {
 		...mapActions([
 			'upgradeDipendenti',
 			'upgradeNegozi',
-			// 'upgradeClick',
+			'upgradeClick',
 			// 'upgradeTempo'
 		]),
 	},
@@ -42,8 +42,8 @@ export default {
 			'dipendentiCostoUpgrade',
 			'negoziValore',
 			'negoziCostoUpgrade',
-			// 'clickValore',
-			// 'clickCostoUpgrade',
+			'clickValore',
+			'clickCostoUpgrade',
 			// 'tempoQty',
 			// 'tempoCostoUpgrade'
 		])
