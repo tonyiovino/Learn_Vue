@@ -1,7 +1,7 @@
 const state = {
 	qty: 1,
 	valore: 1.1,
-	costo: 1000
+	costo: 100
 }
 
 const getters = {
@@ -32,7 +32,7 @@ const actions = {
 
 			commit('setDipendentiCostoUpgrade', 100 / state.qty)
 			commit('setNegoziCostoUpgrade', 1500 / state.qty)
-			commit('setClickCostoUpgrade', 30000 / state.qty)
+			commit('setClickCostoUpgrade', 1 / state.qty)
 			commit('setTempoCostoUpgrade', 30000 / state.qty)
 
 			commit('setDipendentiValore', 1 * state.qty)
